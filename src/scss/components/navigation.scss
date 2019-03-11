@@ -1,0 +1,15 @@
+.navigation {
+  ul li {
+    display: inline;
+    margin: 0px 10px 0px 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #B3B3B3;
+
+    &:hover {
+      color: #5F99C6;
+    }
+  }
+}
