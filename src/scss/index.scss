@@ -1,0 +1,11 @@
+@import "components/navigation";
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 1024px;
+
+  #app {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
