@@ -10,10 +10,23 @@
 
   a {
     text-decoration: none;
-    color: #B3B3B3;
+  }
 
-    &:hover {
-      color: #5F99C6;
+  .nav {
+    &-link {
+      color: #B3B3B3;
+
+      &:hover {
+        color: #5F99C6;
+      }
+    }
+
+    &-active {
+      color: #000000;
+      
+      &:hover {
+        color: #000000;
+      }
     }
   }
 
@@ -28,7 +41,7 @@
     }
 
     #link-select {
-      stroke: #000;
+      stroke: #000000;
     }
   }
 }
