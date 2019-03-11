@@ -7,6 +7,8 @@ class Navigation extends React.Component {
     this.state = {
       x1: 0,
       x2: 0,
+      x1Previous: 0,
+      x2Previous: 0,
       leftOffset: 0
     };
     this.updateLine = this.updateLine.bind(this);
@@ -16,6 +18,8 @@ class Navigation extends React.Component {
     let location = document.getElementById(e.target.id).getBoundingClientRect();
     let leftOffset = document.getElementById('nav-line').getBoundingClientRect().left
     this.setState({
+      x1Previous: this.state.x1,
+      x2Previous: this.state.x2,
       x1: location.left,
       x2: location.right,
       leftOffset: leftOffset
