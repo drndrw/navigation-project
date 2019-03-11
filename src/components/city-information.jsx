@@ -6,9 +6,13 @@ class CityInformation extends React.Component {
     document.title = this.props.label;
   }
 
+  componentDidUpdate() {
+    document.title = this.props.label;
+  }
+
   render () {
     return (
-      <div className={this.props.section}>
+      <div className='information' id={this.props.section}>
         <h1>{this.props.label}</h1>
       </div>
     );
