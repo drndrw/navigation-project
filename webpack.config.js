@@ -1,8 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.js', './src/scss/index.scss'],
+  entry: ['./src/index.jsx', './src/scss/index.scss'],
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -10,13 +12,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      },
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
@@ -39,6 +34,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.ejs'
-    })
+    }),
+    new ExtractTextPlugin('style.css'),
+    new OptimizeCssAssetsPlugin()
   ],
 }
