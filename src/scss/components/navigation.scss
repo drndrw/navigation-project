@@ -1,7 +1,11 @@
 .navigation {
-  ul li {
-    display: inline;
-    margin: 0px 10px 0px 10px;
+  ul {
+    margin-bottom: 10px;
+
+    li {
+      display: inline;
+      margin: 0px 10px 0px 10px;
+    }
   }
 
   a {
@@ -10,6 +14,21 @@
 
     &:hover {
       color: #5F99C6;
+    }
+  }
+
+  svg{
+
+    line {
+      stroke-width: 2;
+    }
+
+    #nav-line {
+      stroke: #B3B3B3;
+    }
+
+    #link-select {
+      stroke: #000;
     }
   }
 }
