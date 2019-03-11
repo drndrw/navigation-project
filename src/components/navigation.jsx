@@ -35,7 +35,7 @@ class Navigation extends React.Component {
       <div className="navigation">
         <ul>
           {this.props.routes.cities.map((city) => (
-            <li><NavLink exact to={city.section} id={city.section} onClick={this.updateLine} className="nav-link" activeClassName="nav-active">{city.label}</NavLink></li>
+            <li><NavLink exact to={'/' + city.section} id={city.section} onClick={this.updateLine} className="nav-link" activeClassName="nav-active">{city.label}</NavLink></li>
           ))}
         </ul>
         <svg height="1" width="100%">
