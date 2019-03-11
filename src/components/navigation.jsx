@@ -14,12 +14,15 @@ class Navigation extends React.Component {
 
   updateLine(e, animate=true) {
     let location = document.getElementById(e.target.id).getBoundingClientRect();
+    let leftOffset = document.getElementById('nav-line').getBoundingClientRect().left
     this.setState({
       x1: location.left,
-      x2: location.right
+      x2: location.right,
+      leftOffset: leftOffset
     }, () => {
       console.log(this.state.x1);
       console.log(this.state.x2);
+      console.log(this.state.leftOffset);
     });
   }
 
