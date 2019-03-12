@@ -13,7 +13,7 @@ class CityInformation extends React.Component {
 
   render () {
     return (
-      <div className='app' id={this.props.section}>
+      <div className='app'>
         <Navigation routes={this.props.routes} activeRoute={this.props.section} />
         <h1>{this.props.label}</h1>
       </div>

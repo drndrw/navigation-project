@@ -16,14 +16,15 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     console.log(this.props.activeRoute);
+    this.updateLine(this.props.activeRoute, false);
   }
 
-  componentDidUpdate() {
-    console.log(this.props.activeRoute);
-  }
-
-  updateLine(e, animate=true) {
-    let location = document.getElementById(e.target.id).getBoundingClientRect();
+  updateLine(element, animate=true) {
+    if (animate) {
+      var location = document.getElementById(element.target.id).getBoundingClientRect();
+    } else {
+      var location = document.getElementById(element).getBoundingClientRect();
+    }
     let leftOffset = document.getElementById('nav-line').getBoundingClientRect().left
     this.setState({
       x1Previous: this.state.x1,
@@ -32,9 +33,14 @@ class Navigation extends React.Component {
       x2: location.right,
       leftOffset: leftOffset
     }, () => {
+      console.log(this.state.x1Previous);
+      console.log(this.state.x2Previous);
       console.log(this.state.x1);
       console.log(this.state.x2);
       console.log(this.state.leftOffset);
+      console.log('ANIMATE:' + animate)
+      document.getElementById('link-select').setAttribute('x1', this.state.x1 - this.state.leftOffset);
+      document.getElementById('link-select').setAttribute('x2', this.state.x2 - this.state.leftOffset);
     });
   }
 
