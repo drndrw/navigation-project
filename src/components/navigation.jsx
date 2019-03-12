@@ -9,7 +9,8 @@ class Navigation extends React.Component {
       x2: 0,
       x1Previous: 0,
       x2Previous: 0,
-      leftOffset: 0
+      leftOffset: 0,
+      willAnimate: false
     };
     this.updateLine = this.updateLine.bind(this);
   }
@@ -31,16 +32,21 @@ class Navigation extends React.Component {
       x2Previous: this.state.x2,
       x1: location.left,
       x2: location.right,
-      leftOffset: leftOffset
+      leftOffset: leftOffset,
+      willAnimate: animate
     }, () => {
       console.log(this.state.x1Previous);
       console.log(this.state.x2Previous);
       console.log(this.state.x1);
       console.log(this.state.x2);
       console.log(this.state.leftOffset);
-      console.log('ANIMATE:' + animate)
-      document.getElementById('link-select').setAttribute('x1', this.state.x1 - this.state.leftOffset);
-      document.getElementById('link-select').setAttribute('x2', this.state.x2 - this.state.leftOffset);
+      console.log('ANIMATE:' + this.state.willAnimate);
+      if (this.state.willAnimate) {
+        console.log('will animate here');
+      } else {
+        document.getElementById('link-select').setAttribute('x1', this.state.x1 - this.state.leftOffset);
+        document.getElementById('link-select').setAttribute('x2', this.state.x2 - this.state.leftOffset);
+      }
     });
   }
 
