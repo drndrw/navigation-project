@@ -20,4 +20,4 @@ The repository already has the compiled files included in the `dist` folder. Thi
 
 ## Installation
 **Author:** Andrew DaRe <br />
-**GitHub** https://github.com/drndrw
+**GitHub:** https://github.com/drndrw
