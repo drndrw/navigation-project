@@ -1,0 +1,47 @@
+.navigation {
+  ul {
+    margin-bottom: 10px;
+
+    li {
+      display: inline;
+      margin: 0px 10px 0px 10px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .nav {
+    &-link {
+      color: #B3B3B3;
+
+      &:hover {
+        color: #5F99C6;
+      }
+    }
+
+    &-active {
+      color: #000000;
+      
+      &:hover {
+        color: #000000;
+      }
+    }
+  }
+
+  svg{
+
+    line {
+      stroke-width: 2;
+    }
+
+    #nav-line {
+      stroke: #B3B3B3;
+    }
+
+    #link-select {
+      stroke: #000000;
+    }
+  }
+}
