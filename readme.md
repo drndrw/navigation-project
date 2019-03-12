@@ -16,6 +16,13 @@ To run locally, clone this repository and run the following commands:
 npm install
 npm run build
 ```
+
+If you would like to run the project using the `webpack-dev-server`, run:
+
+```
+npm run start
+```
+
 The repository already has the compiled files included in the `dist` folder. This project uses Webpack for compiling ES6 Javascript, React and SASS.
 
 ## Installation
