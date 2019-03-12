@@ -14,7 +14,7 @@ class App extends React.Component {
       <HashRouter>
         <Switch>
           {this.props.routes.cities.map((city) => (
-            <Route exact path={'/' + city.section} render={(props) => <CityInformation section={city.section} label={city.label} routes={this.props.routes} />} />
+            <Route exact path={'/' + city.section} render={(props) => <CityInformation section={city.section} label={city.label} timeZone={city.timeZone} routes={this.props.routes} />} />
           ))}
           <Route render={() => <Redirect to={'/' + this.props.routes.cities[0].section} />} />
         </Switch>
