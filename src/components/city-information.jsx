@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from './navigation'
+import Time from './time';
 
 class CityInformation extends React.Component {
 
@@ -16,6 +17,7 @@ class CityInformation extends React.Component {
       <div className='app'>
         <Navigation routes={this.props.routes} activeRoute={this.props.section} />
         <h1>{this.props.label}</h1>
+        <Time timeZone={this.props.timeZone} />
       </div>
     );
   }
