@@ -2,52 +2,20 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 
 class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      x1: 0,
-      x2: 0,
-      x1Previous: 0,
-      x2Previous: 0,
-      leftOffset: 0,
-      willAnimate: false
-    };
-    this.updateLine = this.updateLine.bind(this);
-  }
 
   componentDidMount() {
-    console.log(this.props.activeRoute);
-    this.updateLine(this.props.activeRoute, false);
+    this.updateLine(this.props.activeRoute, true);
   }
 
-  updateLine(element, animate=true) {
-    if (animate) {
-      var location = document.getElementById(element.target.id).getBoundingClientRect();
-    } else {
+  updateLine(element, initial=false) {
+    if (initial) {
       var location = document.getElementById(element).getBoundingClientRect();
+    } else {
+      var location = document.getElementById(element.target.id).getBoundingClientRect();
     }
     let leftOffset = document.getElementById('nav-line').getBoundingClientRect().left
-    this.setState({
-      x1Previous: this.state.x1,
-      x2Previous: this.state.x2,
-      x1: location.left,
-      x2: location.right,
-      leftOffset: leftOffset,
-      willAnimate: animate
-    }, () => {
-      console.log(this.state.x1Previous);
-      console.log(this.state.x2Previous);
-      console.log(this.state.x1);
-      console.log(this.state.x2);
-      console.log(this.state.leftOffset);
-      console.log('ANIMATE:' + this.state.willAnimate);
-      if (this.state.willAnimate) {
-        console.log('will animate here');
-      } else {
-        document.getElementById('link-select').setAttribute('x1', this.state.x1 - this.state.leftOffset);
-        document.getElementById('link-select').setAttribute('x2', this.state.x2 - this.state.leftOffset);
-      }
-    });
+    document.getElementById('link-select').setAttribute('x1', location.left - leftOffset);
+    document.getElementById('link-select').setAttribute('x2', location.right - leftOffset);
   }
 
   render () {
