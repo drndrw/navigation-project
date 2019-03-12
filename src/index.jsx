@@ -9,12 +9,16 @@ import navFile from './navigation.json';
 import Navigation from './components/navigation';
 import Information from './components/information';
 
-const App = () => (
-  <div className="app">
-    <Navigation routes={navFile} />
-    <Information routes={navFile} />
-  </div>
-);
+class App extends React.Component {
+  render() {
+    return (
+      <div className="app">
+        <Navigation routes={navFile} />
+        <Information routes={navFile} />
+      </div>
+    )
+  }
+}
 
 ReactDOM.render((
   <HashRouter>
