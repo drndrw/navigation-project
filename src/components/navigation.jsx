@@ -3,20 +3,25 @@ import {NavLink} from "react-router-dom";
 
 class Navigation extends React.Component {
   constructor(props) {
-  super(props);
-  this.state = {
-    activeSection: null,
-    x1: 0,
-    x2: 0,
-    leftOffset: 0
-  };
-  this.updateLine = this.updateLine.bind(this);
-  this.resizeLine = this.resizeLine.bind(this);
-}
+    super(props);
+    this.state = {
+      activeSection: null,
+      x1: 0,
+      x2: 0,
+      leftOffset: 0
+    };
+    this.updateLine = this.updateLine.bind(this);
+  }
 
   componentDidMount() {
     this.updateLine(this.props.activeRoute, true);
-    window.addEventListener('resize', this.resizeLine());
+    window.addEventListener("resize", this.resizeLine.bind(this));
+  }
+
+  resizeLine() {
+    let leftOffset = document.getElementById('nav-line').getBoundingClientRect().left;
+    let location = document.getElementById(this.state.activeSection).getBoundingClientRect();
+    this.setState({x1: location.left - leftOffset, x2: location.right - leftOffset, leftOffset: leftOffset});
   }
 
   updateLine(element, initial=false) {
@@ -26,7 +31,7 @@ class Navigation extends React.Component {
       this.setState({activeSection: element, x1: location.left - leftOffset, x2: location.right - leftOffset, leftOffset: leftOffset});
     } else {
       let location = document.getElementById(element.target.id).getBoundingClientRect();
-      this.setState({activeSection: element, x1: location.left - leftOffset, x2: location.right - leftOffset, leftOffset: leftOffset});
+      this.setState({activeSection: element.target.id, x1: location.left - leftOffset, x2: location.right - leftOffset, leftOffset: leftOffset});
     }
   }
 
@@ -35,10 +40,6 @@ class Navigation extends React.Component {
     let leftOffset = document.getElementById('nav-line').getBoundingClientRect().left;
     document.getElementById('link-select').setAttribute('x1', location.left - leftOffset);
     document.getElementById('link-select').setAttribute('x2', location.right - leftOffset);
-  }
-
-  resizeLine() {
-    console.log('resizing');
   }
 
   render () {
